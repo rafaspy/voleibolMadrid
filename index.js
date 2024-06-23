@@ -15,24 +15,27 @@ async function openWebPage() {
         });
 
         // Esperar a que el primer selector esté disponible
-        const firstSelector = 'body > div#mount_0_0_HD > div > div: nth - child(1) > div > div:nth - child(5) > div > div > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div.x92rtbv.x10l6tqk.x1tk7jg1.x1vjfegm > div > div';
+        const firstSelector = 'body > div.__fb-light-mode.x1n2onr6.x1vjfegm > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.x1exxf4d.x13fuv20.x178xt8z.x1l90r2v.x1pi30zi.x1swvt13 > div > div:nth-child(1) > div.x1i10hfl.xjbqb8w.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee.x972fbf.xcfux6l.x1qhh985.xm0m39n.x1ypdohk.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x87ps6o.x1lku1pv.x1a2a7pz.x9f619.x3nfvp2.xdt5ytf.xl56j7k.x1n2onr6.xh8yej3 > div';
 
 
         // Imprimir mensaje de éxito
         console.log("First selector found!");
+        await page.waitForSelector(firstSelector);
         await page.click(firstSelector);
 
         // Ahora, esperar a que el segundo selector esté disponible
-        const secondSelector = 'body';
-        await page.waitForSelector(secondSelector);
+        // const secondSelector = 'body';
+        // await page.waitForSelector(secondSelector);
 
-        // Imprimir mensaje de éxito
-        console.log("Second selector found!");
+        // // Imprimir mensaje de éxito
+        // console.log("Second selector found!");
 
-        await page.click(secondSelector);
+        // await page.click(secondSelector);
+
+
         // Esperar a que los posts estén disponibles en la página
-        const postSelector = '.x1i10hfl.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x1ypdohk.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x87ps6o.x1a2a7pz.xmjcpbm.x5lnw11.x1lliihq.x1n2onr6.x1lku1pv';
-        await page.waitForSelector(postSelector);
+        // const postSelector = '.x1i10hfl.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x1ypdohk.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x87ps6o.x1a2a7pz.xmjcpbm.x5lnw11.x1lliihq.x1n2onr6.x1lku1pv';
+        // await page.waitForSelector(postSelector);
 
         // Evaluar y obtener los posts
         const result = await page.evaluate((postSelector) => {
