@@ -39,7 +39,7 @@ async function openWebPage() {
 
     await page.waitForSelector('input[name="pass"]')
     await page.type('input[name="pass"]', FB_PASSWORD);
-    console.log("tiempo esperado!");
+
     await page.waitForSelector('button[name="login"]')
     await page.click('button[name="login"]');
     // page.evaluate(() => {
@@ -53,17 +53,17 @@ async function openWebPage() {
 
 
     // Esperar a que los posts estén disponibles en la página
-    // const postSelector = '.x1i10hfl.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x1ypdohk.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x87ps6o.x1a2a7pz.xmjcpbm.x5lnw11.x1lliihq.x1n2onr6.x1lku1pv';
-    // await page.waitForSelector(postSelector);
+    const postSelector = '.x1i10hfl.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x1ypdohk.xe8uvvx.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x16tdsg8.x1hl2dhg.xggy1nq.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x87ps6o.x1a2a7pz.xmjcpbm.x5lnw11.x1lliihq.x1n2onr6.x1lku1pv';
+    await page.waitForSelector(postSelector);
 
     // Evaluar y obtener los posts
-    // const result = await page.evaluate((postSelector) => {
-    //     const posts = document.querySelectorAll(postSelector);
-    //     console.log(posts); // Imprimir los elementos encontrados para verificar el selector
-    //     return Array.from(posts).map(post => post.innerText);
-    // }, postSelector);
+    const result = await page.evaluate((postSelector) => {
+        const posts = document.querySelectorAll(postSelector);
+        console.log(posts); // Imprimir los elementos encontrados para verificar el selector
+        return Array.from(posts).map(post => post.innerText);
+    }, postSelector);
 
-    // console.log(result); // Imprimir el resultado
+    console.log(result); // Imprimir el resultado
 
 
     await browser.close();
